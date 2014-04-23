@@ -1,10 +1,10 @@
 ###
-#MetaPhOrs website repo
+#tar_indexer repo
 
 This is tar_indexer repository. 
-using sqlite3 for index storing and allowing indexing of multiple tar archives. Beside that
-
-Note, only raw (uncompressed) tar files are accepted as native tar.gz can not be random accessed. But you can compress each file using zlib before adding it to tar. 
+TAR indexer uses sqlite3 for index storing and allows indexing of multiple tar archives. 
+Note, only raw (uncompressed) tar files are accepted as native tar.gz cannot be random accessed. 
+But you can compress each file using zlib before adding it to tar. 
 
 #index content of multiple tar archives
 tar2index.py -v -i db_*/*.tar -d archives.db3
