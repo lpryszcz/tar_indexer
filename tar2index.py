@@ -30,8 +30,8 @@ def get_cursor(indexfn):
         cur.execute("CREATE INDEX file_data_file_name ON file_data (file_name)")
         #create offset_data table
         cur.execute("""CREATE TABLE offset_data (file_id INTEGER,
-                    file_name TEXT, offset INTEGER, file_size INTEGER,
-                    PRIMARY KEY (file_id, file_name))""")
+                    file_name TEXT, offset INTEGER, file_size INTEGER)""") # ,PRIMARY KEY (file_id, file_name))
+        cur.execute("CREATE INDEX offset_data_file_id ON offset_data (file_id)")
         cur.execute("CREATE INDEX offset_data_file_name ON offset_data (file_name)")
     return cur
 
