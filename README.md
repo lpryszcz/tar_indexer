@@ -1,4 +1,4 @@
-## tar_indexer repository
+# tar_indexer repository
 
 TAR indexer uses sqlite3 for index storing and allows indexing of multiple tar archives.  
 Note, only raw (uncompressed) tar files are accepted as native tar.gz cannot be random accessed.  
@@ -11,3 +11,7 @@ tar2index.py -v -i db_*/*.tar -d archives.db3
 # search for some_file in mutliple archives
 tar2index.py -v -f some_file -d archives.db3
 ```
+
+## Prerequisites
+- Python 2.7+
+- [sqlite3](https://www.sqlite.org/) `sudo apt-get install python-sqlite` 
