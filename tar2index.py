@@ -78,14 +78,20 @@ def index_tar(tarfn, indexfn, verbose):
     #index tar file #py2.6 compatible
     #with tarfile.open(tarfn) as tar:
     tar = tarfile.open(tarfn)
+    data = []
     for i, tarinfo in enumerate(tar, 1):
-        cur.execute("INSERT INTO offset_data VALUES (?, ?, ?, ?)", \
-                    (file_id, tarinfo.name, tarinfo.offset_data, tarinfo.size))
-        # free ram...
+        data.append((file_id, tarinfo.name, tarinfo.offset_data, tarinfo.size))
+        # upload 
         if not i%100:
-            tar.members = []
+            cur.executemany("INSERT INTO offset_data VALUES (?, ?, ?, ?)", data)
             if verbose:
                 sys.stderr.write(" %s [%.2f%s]      \r"%(i, tarinfo.offset_data*100.0/tarsize, '%'))
+            # free ram...
+            data = []
+            tar.members = []
+    # upload last batch
+    if data:
+        cur.executemany("INSERT INTO offset_data VALUES (?, ?, ?, ?)", data)
     #finally commit changes
     cur.connection.commit()
 
