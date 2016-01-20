@@ -1,8 +1,8 @@
 ## tar_indexer repository
 
-TAR indexer uses sqlite3 for index storing and allows indexing of multiple tar archives. 
-Note, only raw (uncompressed) tar files are accepted as native tar.gz cannot be random accessed. 
-But you can compress each file using zlib before adding it to tar. 
+TAR indexer uses sqlite3 for index storing and allows indexing of multiple tar archives.  
+Note, only raw (uncompressed) tar files are accepted as native tar.gz cannot be random accessed.  
+But you can compress each file using zlib before adding it to tar.  
 
 ```bash
 # index content of multiple tar archives
