@@ -8,6 +8,6 @@ But you can compress each file using zlib before adding it to tar.
 # index content of multiple tar archives
 tar2index.py -v -i db_*/*.tar -d archives.db3
 
-# search for some_file in mutliple arhcives
+# search for some_file in mutliple archives
 tar2index.py -v -f some_file -d archives.db3
 ```
